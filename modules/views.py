@@ -1,6 +1,14 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
+from rest_framework import viewsets
+from .serializers import ModuleSerializer
+from .models import Module
 
-from django.shortcuts import render
 
-# Create your views here.
+class ModuleViewSet(viewsets.ModelViewSet):
+    model = Module
+    queryset = Module.objects.none()
+    serializer_class = ModuleSerializer
+
+    def get_queryset(self):
+        self.queryset = self.model.objects.all()
+
+        return self.queryset

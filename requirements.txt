@@ -1,0 +1,7 @@
+Django
+djangorestframework
+django_cron
+psycopg2
+psycopg2-binary
+requests
+django-cors-headers

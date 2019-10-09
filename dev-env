@@ -1,0 +1,7 @@
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=password
+POSTGRES_DB=simulator-db-dev
+POSTGRES_PORT=5432
+POSTGRES_HOST=simulator-db
+SECRET_KEY=-j6#+=gl)950ku4%f%q^58&o7_$26destzr((en&6*hp1gogt^
+ENVIRONMENT=development

@@ -1,7 +1,7 @@
-version: '3.7'
+version: '3.5'
 services:
   db:
-    container-name: simulator-db
+    container_name: simulator-db
     image: postgres:9.6
     env_file: dev-env
     networks:
@@ -10,12 +10,12 @@ services:
       - pg-data:/var/lib/postgresql/data
 
   api:
-    container-name: simulator-api
+    container_name: simulator-api
     build: .
     env_file: dev-env
     command: ["sh", "scripts/start.sh"]
     networks:
-      - smi-network
+      - simulator-network
     ports:
       - 3000:3000
     volumes:

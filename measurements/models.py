@@ -1,6 +1,16 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
+import os
 from django.db import models
+from modules.models import Module
 
-# Create your models here.
+
+class ActuatorMeasurement(models.Model):
+    token = models.CharField(max_length=30, default=os.getenv('CENTRAL_TOKEN'))
+    water_consumption = models.FloatField(default=0.0)
+    water_level = models.IntegerField(default=0)
+
+
+class ModuleMeasurement(models.Model):
+    module = models.ForeignKey(Module, on_delete=models.CASCADE)
+    temperature = models.FloatField(default=0.0)
+    humidity = models.FloatField(default=0.0)
+    battery_level = models.IntegerField(default=0)

@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y cron
 
 WORKDIR /controller-simulator
 
-COPY . /central-simulator
+COPY . /controller-simulator
 
 COPY cronjob /etc/cron.d/cronjob
 

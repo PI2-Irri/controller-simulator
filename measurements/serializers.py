@@ -9,7 +9,7 @@ class ActuatorMeasurementSerializer(serializers.HyperlinkedModelSerializer):
         fields = (
             'id',
             'water_consumption',
-            'water_level',
+            'reservoir_level',
             'url'
         )
 
@@ -20,7 +20,7 @@ class ModuleMeasurementSerializer(serializers.HyperlinkedModelSerializer):
         fields = (
             'id',
             'temperature',
-            'humidity',
+            'ground_humidity',
             'battery_level',
             'url'
         )

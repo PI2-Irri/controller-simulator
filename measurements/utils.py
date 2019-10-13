@@ -9,7 +9,6 @@ def create_module_measurement():
     humidity_max_limit = 80.0
     temperature_max_limit = 39.0
     temperature_max_limit = 30.0
-    battery_level = 5
 
     t_increasing = True
     h_decreasing = True
@@ -51,8 +50,7 @@ def create_module_measurement():
 
         ModuleMeasurement.objects.create(
             temperature=temperature,
-            humidity=humidity,
-            battery_level=battery_level
+            ground_humidity=humidity
         )
 
 def create_actuator_measurement():

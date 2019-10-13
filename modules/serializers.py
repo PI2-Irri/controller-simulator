@@ -7,6 +7,5 @@ class ModuleSerializer(serializers.HyperlinkedModelSerializer):
         fields = (
             'id',
             'rf_address',
-            'battery_level',
             'url'
         )

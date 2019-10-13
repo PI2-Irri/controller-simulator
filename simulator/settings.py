@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_cron',
     'rest_framework',
     'measurements',
     'modules'
@@ -109,6 +110,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+CRON_CLASSES = [
+    "measurements.cronjob.ModuleMeasurementCronJob"
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/

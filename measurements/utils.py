@@ -7,8 +7,8 @@ from modules.models import Module
 def create_module_measurement():
     humidity_min_limit = 30.0
     humidity_max_limit = 80.0
+    temperature_min_limit = 30.0
     temperature_max_limit = 39.0
-    temperature_max_limit = 30.0
     battery_level = 5
 
     t_increasing = True
@@ -21,38 +21,33 @@ def create_module_measurement():
             module=module
         ).last()
 
-        if last_measurement is None:
+        if not last_measurement:
             humidity = 60.0
             temperature = 34.0
         else:
             if last_measurement.ground_humidity < humidity_min_limit:
                 h_decreasing = False
-            elif last_measurement.ground_humidity >= humidity_max_limit:
+            elif last_measurement.ground_humidity > humidity_max_limit:
                 h_decreasing = True
-            else:
-                h_decreasing = h_decreasing
 
             if last_measurement.temperature > temperature_max_limit:
                 t_increasing = False
             elif last_measurement.temperature <= temperature_min_limit:
                 t_increasing = True
-            else:
-                t_increasing = t_increasing
 
             if h_decreasing:
-                humidity_decrease = random.random()
+                humidity_decrease = round(random.random())
                 humidity = last_measurement.ground_humidity - humidity_decrease
             else:
-                humidity_increase = random.random()
+                humidity_increase = round(random.random())
                 humidity = last_measurement.ground_humidity + humidity_increase
 
             if t_increasing:
                 temperature_increase = random.random()
                 temperature = last_measurement.temperature + temperature_increase
             else:
-                temperature_increase = random.random()
-                temperature = last_measurement.temperature - temperature_increase
-
+                temperature_decrease = random.random()
+                temperature = last_measurement.temperature - temperature_decrease
 
         measurement = ModuleMeasurement.objects.create(
             temperature=temperature,

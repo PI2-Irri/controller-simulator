@@ -1,0 +1,34 @@
+version: '3.5'
+services:
+  db:
+    container_name: simulator-db
+    image: postgres:9.6
+    env_file: dev-env
+    networks:
+      - simulator-network
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+
+  api:
+    container_name: simulator-api
+    build: .
+    env_file: dev-env
+    command: ["sh", "scripts/start.sh"]
+    networks:
+      - simulator-network
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/controller-simulator
+      - pip_cache:/usr/local/lib/python3.6/site-packages
+    depends_on:
+      - db
+
+volumes:
+  pg-data: {}
+  pip_cache:
+
+networks:
+  simulator-network:
+    name: simulator-network
+    driver: bridge

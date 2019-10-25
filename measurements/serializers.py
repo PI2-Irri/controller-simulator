@@ -10,6 +10,7 @@ class ActuatorMeasurementSerializer(serializers.HyperlinkedModelSerializer):
             'id',
             'water_consumption',
             'reservoir_level',
+            'water_flow',
             'url'
         )
 

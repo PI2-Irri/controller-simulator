@@ -55,8 +55,16 @@ def create_module_measurement():
             battery_level=battery_level,
             module=module
         )
-        print(measurement)
 
 
 def create_actuator_measurement():
-    pass
+    
+    water_consumption = float(random.randint(10,45))
+    reservoir_level = random.randint(10,45)
+    water_flow = 2
+
+    actuator = ActuatorMeasurement.objects.create(
+        water_consumption=water_consumption,
+        reservoir_level=reservoir_level,
+        water_flow=water_flow
+    )

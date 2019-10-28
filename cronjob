@@ -1,2 +1,3 @@
 * * * * * export $(cat /root/env | xargs) && python /controller-simulator/manage.py runcrons measurements.cronjob.ModuleMeasurementCronJob >> /home/modulemeasurements.log
+* * * * * export $(cat /root/env | xargs) && python /controller-simulator/manage.py runcrons measurements.cronjob.ActuatorMeasurementCronJob >> /home/actuatormeasurements.log
 # Necessary line at end of file to make cron valid

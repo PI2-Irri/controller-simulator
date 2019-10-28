@@ -7,6 +7,7 @@ class ActuatorMeasurement(models.Model):
     token = models.CharField(max_length=30, default=os.getenv('CENTRAL_TOKEN'))
     water_consumption = models.FloatField(default=0.0)
     reservoir_level = models.IntegerField(default=0)
+    water_flow = models.IntegerField(default=0)
 
 
 class ModuleMeasurement(models.Model):

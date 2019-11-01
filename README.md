@@ -49,19 +49,19 @@ Para subir o ambiente de desenvolvimento, você deve ter o _docker_ e o _docker-
 
 Após a instalação de ambos, caso seja a primeira vez que o ambiente é usado ou quando realiza alguma alteração no arquivo _Dockerfile_, execute:
 
-sudo docker-compose up --build
+`sudo docker-compose up --build`
 
 Caso contrário, após ter feito a _build_ anteriormente, mas sem realizar alterações no _Dockerfile_, use:
 
-sudo docker-compose up
+`sudo docker-compose up`
 
 Para acessar o _container_ ou do simulador:
 
-sudo docker exec -it simulator-api bash
+`sudo docker exec -it simulator-api bash`
 
 ou de seu banco associado:
 
-sudo docker exec -it simulator-db bash
+`sudo docker exec -it simulator-db bash`
 
 ## Endpoints
 
